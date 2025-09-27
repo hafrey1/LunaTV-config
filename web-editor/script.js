@@ -1,4 +1,3 @@
-// web-editor/script.js
 // 全局变量
 let editor;
 let currentConfig = '';
@@ -11,7 +10,7 @@ let isTokenVisible = false;
 const GITHUB_CONFIG = {
     owner: 'hafrey1',
     repo: 'LunaTV-config',
-    path: 'LunaTV-config.json',
+    path: 'luna-tv-config.json',
     branch: 'main'
 };
 
