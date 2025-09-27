@@ -68,8 +68,6 @@ body {
     display: flex;
     gap: 10px;
     align-items: center;
-    flex-wrap: nowrap; /* 强制不换行 */
-    min-width: 0; /* 允许flex items收缩 */
 }
 
 .token-input {
@@ -79,12 +77,9 @@ body {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 14px;
-    min-width: 250px;
-    max-width: 300px;
-    width: 250px; /* 固定宽度 */
+    min-width: 300px;
     transition: all 0.3s ease;
     font-family: 'Monaco', 'Menlo', monospace;
-    flex-shrink: 0; /* 防止输入框被压缩 */
 }
 
 .token-input::placeholder {
@@ -323,7 +318,7 @@ body {
     background: #fafafa;
 }
 
-/* 按钮样式 - 修复版本 */
+/* 按钮样式 */
 .btn {
     padding: 8px 16px;
     border: 1px solid transparent;
@@ -339,8 +334,6 @@ body {
     gap: 6px;
     transition: all 0.2s ease;
     min-height: 36px;
-    white-space: nowrap; /* 防止按钮文字换行 */
-    flex-shrink: 0; /* 防止按钮被压缩 */
 }
 
 .btn:disabled {
@@ -354,11 +347,11 @@ body {
     border-color: #667eea;
 }
 
-/* 修复后的悬停效果 - 移除transform，只改变颜色和阴影 */
 .btn-primary:hover:not(:disabled) {
     background: #5a67d8;
     border-color: #5a67d8;
-    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
 .btn-success {
@@ -370,7 +363,8 @@ body {
 .btn-success:hover:not(:disabled) {
     background: #38a169;
     border-color: #38a169;
-    box-shadow: 0 2px 4px rgba(72, 187, 120, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(72, 187, 120, 0.3);
 }
 
 .btn-secondary {
@@ -527,26 +521,15 @@ body {
         width: 250px;
     }
     
-    .auth-section {
-        flex-wrap: wrap; /* 小屏幕时允许换行 */
-        justify-content: center;
-    }
-    
     .token-input {
         min-width: 200px;
-        max-width: 250px;
-        width: 200px;
-    }
-    
-    .btn {
-        min-width: 100px;
     }
 }
 
 @media (max-width: 768px) {
     .top-toolbar {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         padding: 15px;
     }
     
@@ -566,20 +549,14 @@ body {
         border-bottom: 1px solid #e1e5e9;
     }
     
-    .auth-section {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-    
     .token-input {
         min-width: auto;
-        max-width: none;
         width: 100%;
+        margin-bottom: 10px;
     }
     
-    .btn {
-        min-width: auto;
+    .auth-section {
+        flex-direction: column;
         width: 100%;
     }
     
