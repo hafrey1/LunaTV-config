@@ -1,0 +1,6 @@
+# 永远保留我自己的配置文件，不被上游覆盖
+README.md merge=ours
+report.md merge=ours
+
+# # 如果你想保护整个目录
+# my_private_configs/** merge=ours

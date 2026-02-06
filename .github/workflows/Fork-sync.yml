@@ -5,42 +5,42 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 17 * * *"  # 每天北京时间凌晨1点运行 (UTC 17点)
+    - cron: "0 17 * * *"  # 每天北京时间凌晨1点运行
   workflow_dispatch:
 
 jobs:
   sync_latest_from_upstream:
-    name: Sync latest commits from upstream repo
+    name: Sync and Protect Local Configs
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.fork }}
 
     steps:
-      # Step 1: run a standard checkout action
       - name: Checkout target repo
         uses: actions/checkout@v4
-
-      # Step 2: run the sync action
-      - name: Sync upstream changes
-        id: sync
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
         with:
-          upstream_sync_repo: hafrey1/LunaTV-config
-          upstream_sync_branch: main
-          target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, no need to set
+          fetch-depth: 0
 
-          # Set test_mode true to run tests instead of the true action!!
-          test_mode: false
-
-      - name: Sync check
-        if: failure()
+      - name: Configure Git & Ours Driver
         run: |
-          echo "[Error] 由于上游仓库的 workflow 文件变更，导致 GitHub 自动暂停了本次自动更新，你需要手动 Sync Fork 一次，详细教程请查看项目README.md "
-          echo "[Error] Due to a change in the workflow file of the upstream repository, GitHub has automatically suspended the scheduled automatic update. You need to manually sync your fork. Please refer to the project README.md for instructions. "
-          exit 1
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 关键：在 Action 服务器上激活 ours 驱动
+          git config merge.ours.driver true
+
+      - name: Sync upstream changes
+        run: |
+          # 添加上游
+          git remote add upstream https://github.com/hafrey1/LunaTV-config.git
+          git fetch upstream main
           
+          # 执行合并。此时 .gitattributes 里标记为 merge=ours 的文件会无视上游修改
+          git merge upstream/main --no-edit || (echo "检测到非受保护文件的核心冲突，需手动处理" && exit 1)
+
+      - name: Push to origin
+        run: |
+          git push origin main
+
       - name: Delete workflow runs
-      # 删除工作流记录/只保留1天记录
         uses: Mattraks/delete-workflow-runs@main
         with:
           retain_days: 0
