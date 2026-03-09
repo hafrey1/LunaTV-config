@@ -141,12 +141,6 @@
       "api": "https://pz.168188.dpdns.org/?url=https://lovedan.net/api.php/provide/vod",
       "detail": "https://lovedan.net"
     },
-    "zy.sh0o.cn": {
-      "_comment": "无搜索结果",
-      "name": "🎬山海资源",
-      "api": "https://zy.sh0o.cn/api.php/provide/vod",
-      "detail": "https://zy.sh0o.cn"
-    },
     "zy.jinchancaiji.com": {
       "_comment": "无搜索结果",
       "name": "🎬金蝉影视",
@@ -223,11 +217,6 @@
       "name": "🔞麻豆视频",
       "api": "https://91md.me/api.php/provide/vod",
       "detail": "https://91md.me"
-    },
-    "91jpzyw.com": {
-      "name": "🔞91-精品-",
-      "api": "https://91jpzyw.com/api.php/provide/vod",
-      "detail": "https://91jpzyw.com"
     },
     "lbapiby.com": {
       "name": "🔞--AIvin-",
