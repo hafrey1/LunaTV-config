@@ -172,7 +172,7 @@
       "detail": "https://wwzy.tv"
     },
     "1080zyk4.com": {
-      "_comment": "JSON 里所有中文字符为 Unicode 编码",
+      "_comment": "无法搜索",
       "name": "🎬优质资源",
       "api": "https://api.yzzy-api.com/inc/apijson.php",
       "detail": "https://1080zyk4.com"

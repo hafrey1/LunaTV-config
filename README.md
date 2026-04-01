@@ -3,6 +3,11 @@ https://hafrey1.github.io/LunaTV-config
 
 --- 
 
+## DigitalPlat 免费域名注册链接(us.kg)
+免费注册 **.qzz.io  和 **.qd.je 域名,成功注册后多获得+1个免费域名额度
+
+[注册地址](https://dash.domain.digitalplat.org/signup?ref=628Y3lAzQY)
+
 ##  MoonTV/LunaTV配置
 订阅使用：复制下面链接  
 
