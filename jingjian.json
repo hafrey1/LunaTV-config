@@ -221,16 +221,6 @@
       "api": "https://shayuapi.com/api.php/provide/vod",
       "detail": "https://shayuapi.com"
     },
-    "xzytv.com": {
-      "name": "🔞-幸资源-",
-      "api": "https://xzybb2.com/api.php/provide/vod",
-      "detail": "https://xzytv.com"
-    },
-    "doudouzy.com": {
-      "name": "🔞豆豆资源",
-      "api": "https://api.douapi.cc/api.php/provide/vod",
-      "detail": "https://doudouzy.com"
-    },
     "didizy.com": {
       "name": "🔞滴滴资源",
       "api": "https://api.ddapi.cc/api.php/provide/vod",
